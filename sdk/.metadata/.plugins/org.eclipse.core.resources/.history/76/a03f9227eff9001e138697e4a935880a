@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BBD712E0-5B54-4F20-A4AB-ED1CB6D16DC6}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>JXIDev</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>FirmDriveCore</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
+    <SupportsPackaging>true</SupportsPackaging>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <DriverTargetPlatform>Desktop</DriverTargetPlatform>
+    <SupportsPackaging>true</SupportsPackaging>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <OutDir>$(ProjectDir)$(PlatformShortName)\$(Configuration)\</OutDir>
+    <IntDir>$(PlatformShortName)\$(Configuration)\</IntDir>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <OutDir>$(ProjectDir)$(PlatformShortName)\$(Configuration)\</OutDir>
+    <IntDir>$(PlatformShortName)\$(Configuration)\</IntDir>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <OutDir>$(ProjectDir)$(PlatformShortName)\$(Configuration)\</OutDir>
+    <IntDir>$(PlatformShortName)\$(Configuration)\</IntDir>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <OutDir>$(ProjectDir)$(PlatformShortName)\$(Configuration)\</OutDir>
+    <IntDir>$(PlatformShortName)\$(Configuration)\</IntDir>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;FirmDrive_API_EXPORTS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;_DEBUG_LOG</PreprocessorDefinitions>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\Include\;$(ProjectDir)..\Depends\sqlite\include\;$(ProjectDir)..\Depends\LM\include\;$(ProjectDir)..\FirmDriveUSB\include</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sqlite.lib;FirmDriveLicenseManager.lib;FirmDriveUSBAPI.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\Depends\LM\lib_win\$(platformshortname)\$(configuration);$(ProjectDir)..\Depends\sqlite\lib_win\$(platformshortname)\$(configuration);$(ProjectDir)..\FirmDriveUSB\Export\lib_win\$(PlatformShortName);$(BOOST_PATH)lib</AdditionalLibraryDirectories>
+    </Link>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(IntDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /y /i $(ProjectDir)..\Include\FirmDriveCore.h $(ProjectDir)..\Export\include\
+xcopy /y /i $(ProjectDir)..\Include\IIC_Operator.h $(ProjectDir)..\Export\include\
+xcopy /y /i $(TargetDir)FirmDriveCore.dll $(ProjectDir)..\Export\lib_win\$(PlatformShortName)\
+xcopy /y /i $(TargetDir)FirmDriveCore.lib $(ProjectDir)..\Export\lib_win\$(PlatformShortName)\
+xcopy /y /i $(ProjectDir)..\FirmDriveRuntime.md $(ProjectDir)..\Export\
+xcopy /y /i $(ProjectDir)..\release.txt $(ProjectDir)..\Export\</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>FirmDrive_API_EXPORTS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS;_DEBUG_LOG</PreprocessorDefinitions>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <WppEnabled>true</WppEnabled>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <SDLCheck>false</SDLCheck>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\Include\;$(ProjectDir)..\Depends\sqlite\include\;$(ProjectDir)..\Depends\LM\include\;$(ProjectDir)..\FirmDriveUSB\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sqlite.lib;FirmDriveLicenseManager.lib;FirmDriveUSBAPI.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\Depends\LM\lib_win\$(platformshortname)\$(configuration);$(ProjectDir)..\Depends\sqlite\lib_win\$(platformshortname)\$(configuration);$(ProjectDir)..\FirmDriveUSB\Export\lib_win\$(PlatformShortName);$(BOOST_PATH)lib</AdditionalLibraryDirectories>
+    </Link>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(IntDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /y /i $(ProjectDir)..\Include\FirmDriveCore.h $(ProjectDir)..\Export\include\
+xcopy /y /i $(ProjectDir)..\Include\IIC_Operator.h $(ProjectDir)..\Export\include\
+xcopy /y /i $(TargetDir)FirmDriveCore.dll $(ProjectDir)..\Export\lib_win\$(PlatformShortName)\
+xcopy /y /i $(TargetDir)FirmDriveCore.lib $(ProjectDir)..\Export\lib_win\$(PlatformShortName)\
+xcopy /y /i $(ProjectDir)..\FirmDriveRuntime.md $(ProjectDir)..\Export\
+xcopy /y /i $(ProjectDir)..\release.txt $(ProjectDir)..\Export\</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;FirmDrive_API_EXPORTS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\Include\;$(ProjectDir)..\Depends\sqlite\include\;$(ProjectDir)..\Depends\LM\include\;$(ProjectDir)..\FirmDriveUSB\include</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sqlite.lib;FirmDriveLicenseManager.lib;FirmDriveUSBAPI.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\Depends\LM\lib_win\$(platformshortname)\$(configuration);$(ProjectDir)..\Depends\sqlite\lib_win\$(platformshortname)\$(configuration);$(ProjectDir)..\FirmDriveUSB\Export\lib_win\$(PlatformShortName);$(BOOST_PATH)lib</AdditionalLibraryDirectories>
+    </Link>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(IntDir)%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Xdcmake>
+      <OutputFile />
+    </Xdcmake>
+    <PostBuildEvent>
+      <Command>xcopy /y /i $(ProjectDir)..\Include\FirmDriveCore.h $(ProjectDir)..\Export\include\
+xcopy /y /i $(ProjectDir)..\Include\IIC_Operator.h $(ProjectDir)..\Export\include\
+xcopy /y /i $(TargetDir)FirmDriveCore.dll $(ProjectDir)..\Export\lib_win\$(PlatformShortName)\
+xcopy /y /i $(TargetDir)FirmDriveCore.lib $(ProjectDir)..\Export\lib_win\$(PlatformShortName)\
+xcopy /y /i $(ProjectDir)..\FirmDriveRuntime.md $(ProjectDir)..\Export\
+xcopy /y /i $(ProjectDir)..\release.txt $(ProjectDir)..\Export\</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>FirmDrive_API_EXPORTS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <WppEnabled>false</WppEnabled>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\Include\;$(ProjectDir)..\Depends\sqlite\include\;$(ProjectDir)..\Depends\LM\include\;$(ProjectDir)..\FirmDriveUSB\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sqlite.lib;FirmDriveLicenseManager.lib;FirmDriveUSBAPI.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\Depends\LM\lib_win\$(platformshortname)\$(configuration);$(ProjectDir)..\Depends\sqlite\lib_win\$(platformshortname)\$(configuration);$(ProjectDir)..\FirmDriveUSB\Export\lib_win\$(PlatformShortName);$(BOOST_PATH)lib</AdditionalLibraryDirectories>
+    </Link>
+    <ResourceCompile>
+      <ResourceOutputFileName>$(IntDir)%(Filename).res</ResourceOutputFileName>
+      <AdditionalOptions />
+    </ResourceCompile>
+    <Xdcmake>
+      <OutputFile />
+    </Xdcmake>
+    <PostBuildEvent>
+      <Command>xcopy /y /i $(ProjectDir)..\Include\FirmDriveCore.h $(ProjectDir)..\Export\include\
+xcopy /y /i $(ProjectDir)..\Include\IIC_Operator.h $(ProjectDir)..\Export\include\
+xcopy /y /i $(TargetDir)FirmDriveCore.dll $(ProjectDir)..\Export\lib_win\$(PlatformShortName)\
+xcopy /y /i $(TargetDir)FirmDriveCore.lib $(ProjectDir)..\Export\lib_win\$(PlatformShortName)\
+xcopy /y /i $(ProjectDir)..\FirmDriveRuntime.md $(ProjectDir)..\Export\
+xcopy /y /i $(ProjectDir)..\release.txt $(ProjectDir)..\Export\</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Include\DBOperator.h" />
+    <ClInclude Include="..\Include\EEPROM_IIC.h" />
+    <ClInclude Include="..\Include\FirmDriveCore.h" />
+    <ClInclude Include="..\Include\IIC_Operator.h" />
+    <ClInclude Include="..\Include\JXICLog.h" />
+    <ClInclude Include="..\Include\ProcessMutex.h" />
+    <ClInclude Include="..\Include\RegOperator.h" />
+    <ClInclude Include="..\Include\xdma_public.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="FirmDriveCore.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Source\DBOperator.cpp" />
+    <ClCompile Include="..\Source\EEPROM_IIC.cpp" />
+    <ClCompile Include="..\Source\FirmDriveCore.cpp" />
+    <ClCompile Include="..\Source\IIC_Operator.cpp" />
+    <ClCompile Include="..\Source\JXICLog.c" />
+    <ClCompile Include="..\Source\ProcessMutex.cpp" />
+    <ClCompile Include="..\Source\RegOperator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\FirmDriveRuntime.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\release.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,50 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CPP_SRCS += \
+../Source/DBOperator.cpp \
+../Source/EEPROM_IIC.cpp \
+../Source/FirmDriveCore.cpp \
+../Source/IIC_Operator.cpp \
+../Source/ProcessMutex.cpp 
+
+C_SRCS += \
+../Source/JXICLog.c 
+
+OBJS += \
+./Source/DBOperator.o \
+./Source/EEPROM_IIC.o \
+./Source/FirmDriveCore.o \
+./Source/IIC_Operator.o \
+./Source/JXICLog.o \
+./Source/ProcessMutex.o 
+
+CPP_DEPS += \
+./Source/DBOperator.d \
+./Source/EEPROM_IIC.d \
+./Source/FirmDriveCore.d \
+./Source/IIC_Operator.d \
+./Source/ProcessMutex.d 
+
+C_DEPS += \
+./Source/JXICLog.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+Source/%.o: ../Source/%.cpp
+	@echo 'Building file: $<'
+	@echo 'Invoking: GCC C++ Compiler'
+	g++ -std=c++0x -I../Include -I../../Depends/LM/include/ -I../../Depends/sqlite/include/ -O0 -g3 -Wall -c -fmessage-length=0 -fPIC -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Source/%.o: ../Source/%.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: GCC C Compiler'
+	gcc -std=c11 -I../Include -I../../Depends/LM/include/ -I../../Depends/sqlite/include/ -O0 -g3 -Wall -c -fmessage-length=0 -fPIC -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+

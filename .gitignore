@@ -5,3 +5,6 @@ prj/
 *.log
 
 *.str
+*.d
+*.o
+*.mk

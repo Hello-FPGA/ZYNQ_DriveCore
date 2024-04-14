@@ -1,0 +1,7 @@
+dirs := X64_Release
+dirs += X86_Release
+
+all:
+	$(foreach N,$(dirs),make -C $(N) all;)
+clean:
+	$(foreach N,$(dirs),make -C $(N) clean;)
