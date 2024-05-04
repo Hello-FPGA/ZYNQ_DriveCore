@@ -105,14 +105,14 @@ void* DMARead_Task0_MM(void* lpParameter)
 	char error_message[MAXCHAR];
 
 
-	dwBufSize = 1024 * 1024 * 16;
+	dwBufSize = 1024 * 1024 * 1;
 	nByteToWrite = dwBufSize;
 	totalBytesTransferd = 0;
 	actualBytesWrite = 0;
 	ReadTimes = 0;
 	ID = 0;//DMAͨ channel id
 	
-	pUserBuf =(int*)_aligned_malloc(dwBufSize,32);
+	pUserBuf =(int*)_aligned_malloc(dwBufSize,1024);
 	if (!pUserBuf)
 	{
 		printf("pUserBuf memory allocate failed");
@@ -138,7 +138,7 @@ void* DMARead_Task0_MM(void* lpParameter)
 			RunningTime = 1000 * (tp_end.tv_sec - tp_start.tv_sec) + (tp_end.tv_usec - tp_start.tv_usec) / 1000;
 		    gettimeofday(&tp_start, NULL);
 #endif
-			printf("C2H DMA CHNNEL 0 %lld M/s\n", totalBytesTransferd * 1000 / (1024*1024* RunningTime));
+			printf("memory read %lld M/s\n", totalBytesTransferd * 1000 / (1024*1024* RunningTime));
 			totalBytesTransferd = 0;
 		}
 		status = Drive_DMA_MM_ReadC2H(hDev, (PCHAR)pUserBuf, 0x00000000, nByteToWrite, &actualBytesWrite);
@@ -153,7 +153,7 @@ void* DMARead_Task0_MM(void* lpParameter)
 		totalBytesTransferd += actualBytesWrite;
 	}
 
-	printf("DMA Read RunTimes=0x%x  ", ReadTimes);
+	printf("memory Read RunTimes=0x%x  ", ReadTimes);
 	if (pUserBuf)
 	{
 		_aligned_free(pUserBuf);//
@@ -207,14 +207,14 @@ void* DMAWrite_Task0_MM(void* lpParameter)
 	char error_message[MAXCHAR];
 
 
-	dwBufSize = 1024 * 1024 * 16;
+	dwBufSize = 1024 * 1024 * 4;
 	nByteToWrite = dwBufSize;
 	totalBytesTransferd = 0;
 	actualBytesWrite = 0;
 	WriteTimes = 0;
 	ID = 0;
 
-	pUserBuf = (int*)_aligned_malloc(nByteToWrite, 32);
+	pUserBuf = (int*)_aligned_malloc(nByteToWrite, 1024);
 	if (!pUserBuf)
 	{
 		printf("pUserBuf memory allocate failed");
@@ -240,10 +240,10 @@ void* DMAWrite_Task0_MM(void* lpParameter)
 			RunningTime = 1000 * (tp_end.tv_sec - tp_start.tv_sec) + (tp_end.tv_usec - tp_start.tv_usec) / 1000;
 		    gettimeofday(&tp_start, NULL);
 #endif
-			printf("H2C DMA CHNNEL 0 %lld M/s\n", totalBytesTransferd * 1000 / (1024*1024* RunningTime));
+			printf("memory write %lld M/s\n", totalBytesTransferd * 1000 / (1024*1024* RunningTime));
 			totalBytesTransferd = 0;
 		}
-		status = Drive_DMA_MM_WriteH2C(hDev, (PCHAR)pUserBuf, 0x00000000, nByteToWrite, &actualBytesWrite);
+		status = Drive_DMA_MM_WriteH2C(hDev, (PCHAR)pUserBuf, 0x40000000, nByteToWrite, &actualBytesWrite);
 		if (status)
 		{
 			printf("%s\n", error_message);
@@ -254,7 +254,7 @@ void* DMAWrite_Task0_MM(void* lpParameter)
 
 		totalBytesTransferd += actualBytesWrite;
 	}
-	printf("DMA Write Test RunTimes=0x%x  ", WriteTimes);
+	printf("memory Write Test RunTimes=0x%x  ", WriteTimes);
 
 	if (pUserBuf)
 	{
@@ -288,7 +288,7 @@ int  main(int argc, char* argv[])
 	pthread_t dma_c2h_process,dma_h2c_process;
 #endif
 	int length = 1024 * 1024*4;
-	int testedLength = 0;
+	unsigned int testedLength = 0;
 	int testedTimes = 0;
 	UINT32 actual_bytes = 0;
 	int *rbuffer = (int*)_aligned_malloc(length, 32);
@@ -309,8 +309,18 @@ int  main(int argc, char* argv[])
 	}
 	for (int i = 0; i < length/4; i++)
 	{
-		srand((int)time(0));
+		//srand((int)time(0));
 		wbuffer[i] = i;
+	}
+	int registerValue;
+	for(int i = 0; i<16*1024; i = i+4)
+	{
+		Drive_WriteReg(hDev, 0+ i, i);
+		Drive_ReadReg(hDev, 0+ i, &registerValue);
+		if(registerValue !=i)
+		{
+			printf("register read/write error\n");
+		}
 	}
 
 	printf("check dma read/write correctness\n");
@@ -320,7 +330,7 @@ int  main(int argc, char* argv[])
 		{
 			length = options.length - testedLength;
 		}*/
-		if(options.startAddr+ testedLength>512*1024*1024)
+		if(options.startAddr+ testedLength>2*1024*1024*1024UL)
 		{
 			testedLength = 0;
 			testedTimes++;
@@ -348,10 +358,10 @@ int  main(int argc, char* argv[])
 			}
 			
 		}
-		printf("data check correct\n");
+		printf("data check correct, testedLength = %d\n",testedLength );
 		RtlZeroMemory(rbuffer, length);
-		RtlZeroMemory(wbuffer, length);
-	} while (testedTimes<10);//testedLength<options.length
+		//RtlZeroMemory(wbuffer, length);
+	} while (testedTimes<1);//testedLength<options.length
 	printf("dma read/write check over, everything is okay\n");
 
 	printf("dma read/write speed test\n");
